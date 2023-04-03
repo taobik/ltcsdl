@@ -1,0 +1,64 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Sach";
+}
+@{
+    IEnumerable<Sach> sach = ViewData["Sach"] as IEnumerable<Sach>;
+    IEnumerable<TheLoaiAmount> theloai = ViewData["TheLoai"] as IEnumerable<TheLoaiAmount>;
+}
+<head>
+    <link href="~/css/Sach.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="body">
+    <div class="row">
+        <div class="col-md-2" style="padding-right:0">
+            <h2>Danh mục</h2>
+            <div class="dropdown">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Thể loại
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    @foreach (TheLoaiAmount s in theloai)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">@s.TenTheLoai</div>
+                            </div>
+                        <span class="badge bg-primary rounded-pill">@s.SachAmount</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <h2>Tất cả sản phẩm</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (Sach s in sach)
+                {
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="@s.Anh" class="card-img-top" alt="@s.Ten">
+                            <div class="card-body">
+                                <h5 class="card-title">@s.Ten</h5>
+							    <p class="card-text">@s.GiaBan VNĐ</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-grid gap-2 d-md-block">
+                                  <button class="btn btn-primary" type="button">Xem</button>
+                                  <button class="btn btn-primary" type="button">Xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+
+
