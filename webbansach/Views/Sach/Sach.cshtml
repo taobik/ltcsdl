@@ -1,5 +1,4 @@
-﻿@model dynamic
-@{
+﻿@{
     ViewData["Title"] = "Sach";
 }
 @{
@@ -46,7 +45,9 @@
                             </div>
                             <div class="card-footer">
                                 <div class="d-grid gap-2 d-md-block">
-                                  <button class="btn btn-primary" type="button">Xem</button>
+                                  <button class="btn btn-primary" type="button">
+                                      <a href="/SachChiTiet/ChiTiet/@s.Id" style="color: white">Xem</a>
+                                      </button>
                                   <button class="btn btn-primary" type="button">Xóa</button>
                                 </div>
                             </div>

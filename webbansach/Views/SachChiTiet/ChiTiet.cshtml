@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "ChiTiet";
+}
+@{
+    IEnumerable<SachInfor> chitiet = ViewData["SachInfor"] as IEnumerable<SachInfor>;
+    IEnumerable<SachInfor> sach = ViewData["SachInforAll"] as IEnumerable<SachInfor>;
+}
+<head>
+    <link href="~/css/chitiet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    @foreach(SachInfor s in chitiet)
+    {
+        <div class="body">
+            <div class="row">
+                <div class="col-md-8 col-sm-6">
+                    <div class="row">
+                        <div class="col-md-3 body-header" style="min-width:335px">
+                            <img src="@s.Anh" alt="@s.Ten">
+                        </div>
+                            <div class="col body-body" style="min-width:400px">
+                                <h3 class="bottom" style="color:black">@s.Ten</h3>
+                                <div class="body-body-info">
+                                    <ul>                                        
+                                        <li>
+                                            Thể loại: <span>@s.TenTheLoai</span>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            Tác giả: <span>@s.TenTacGia</span>
+                                        </li>
+                                        <li>
+                                            Nhà Xuất Bản: <span>@s.TenNhaXuatBan</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h3 class="bottom" style="color:black">@s.GiaBan VNĐ</h3>
+                                <button type="button" class="btn btn-warning">Bỏ vào giỏ hàng</button>
+                            </div>
+                    </div>
+                    <hr>
+                    <div class="container-fluid">
+                        BÌNH LUẬN SẢN PHẨM
+                    </div>
+                    <div class="container-fluid">
+                        <p>Vui lòng <a href="#">đăng nhập</a> để bình luận!</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm7 body-body" style="min-width:300px">
+                    <h5>SẢN PHẨM CÙNG THỂ LOẠI</h5>
+                    @foreach(SachInfor a in sach)
+                    {
+                        @if(s.TenTheLoai == a.TenTheLoai && s.Id != a.Id)
+                        {
+                            <a href="/SachChiTiet/ChiTiet/@a.Id">
+                                <div class="row">
+                                    <div class="col-md-3 body-body-img" style="min-width:110px">
+                                        <img src="@a.Anh" alt="@a.Ten">
+                                    </div>
+                                    <div class="col body-body-info">
+                                        <ul>
+                                            <li>@a.Ten</li>
+                                            <hr style="visibility: hidden;">
+                                            <li style="color: blue">@a.GiaBan VNĐ</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</body>

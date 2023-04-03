@@ -1,18 +1,50 @@
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+.nav {
+    height: 30px;
+    background-color: black;
+}
+
+.nav > li {
+    margin: -5px 3px;
+}
+
+.nav > li > a {
+    padding: 7px;
+    color: white
+}
+
+.nav > .nav-item {
+    display: flex
+}
+
+* {
+    font-family: cursive
+}
+
+h1 {
+    text-align: center;
+}
+
+#carouselExampleIndicators {
+    margin: 30px 150px;
+}
+

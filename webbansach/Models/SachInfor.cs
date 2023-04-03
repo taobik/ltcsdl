@@ -1,4 +1,4 @@
-﻿namespace webbansach.Models.@virtual
+﻿namespace webbansach.Models
 {
     public class SachInfor
     {
